@@ -18,12 +18,13 @@ https://github.com/tanmeng-maker/juooo
   - 搭建聚橙网
     1 . src
     2 . assets 文件夹:静态资源
-    3 . components 文件夹:组件
-    4 . router 文件夹:路由集中式管理
-    5 . views 文件夹:路由页面组件
-    6 . App.vue
-    7 . index.js 入口文件的配置
-    8 . vue.config.js 服务器代理配置
+    3 . components 文件夹:公共组件
+    4 . router 文件夹: 路由集中式管理
+    5 . store  文件夹：vuex状态管理
+    6 . views 文件夹: 路由页面组件
+    7 . App.vue
+    8 . main.js 入口文件
+    9 . vue.config.js 服务器代理配置
   - 完成了路由组件的搭建
 
 
