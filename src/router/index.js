@@ -21,6 +21,11 @@ Vue.use(VueRouter)
     component: () => import('@/views/ticket/Ticket')
   },
   {
+    path:'/my',
+    name:'My',
+    component: () => import('@/views/my/My')
+  },
+  {
     path:'*',
     name:'Error',
     component: () => import('@/views/error/Error')
