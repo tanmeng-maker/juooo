@@ -1,8 +1,8 @@
-const path = require("path");
-// 拼接路径
-function resolve(dir) {
-    return path.join(__dirname, dir)
-  }
+// const path = require("path");
+// // 拼接路径
+// function resolve(dir) {
+//     return path.join(__dirname, dir)
+//   }
 module.exports = {
     devServer:{
         open:true,
