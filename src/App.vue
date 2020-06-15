@@ -4,8 +4,17 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
+    <TabBar/>
   </div>
 </template>
-
+<script>
+import TabBar from "@/components/tabBar/TabBar";
+export default {
+  name: 'App',
+  components:{
+    TabBar
+  }
+}
+</script>
 <style lang="scss">
 </style>
