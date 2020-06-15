@@ -23,7 +23,8 @@ https://github.com/tanmeng-maker/juooo
     7. App.vue
     8. main.js : 入口文件
     9. vue.config.js: 配置 反向代理
-- 唐佳琪
+    - 搭建好路由组件 初始化代码
+- 唐家琪
 - 殷周荣
 - 杨毅
     
