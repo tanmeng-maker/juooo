@@ -46,6 +46,7 @@ export default {
       height: 100%;
 	  text-align: center;
       span{
+        font-size:0.4rem;
         margin-top: 0.11rem;
 	  }
 	  p{
