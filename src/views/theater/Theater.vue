@@ -1,5 +1,6 @@
 <template>
   <div>
+      <!-- 剧院 -->
     <div class="Header">剧院</div>
     <div class="theater-box" v-for="v in theatre" :key="v.id">
       <div class="theater-box-title">
@@ -32,7 +33,7 @@ export default {
     }
   },
   created() {
-    this.$axios.get('/api/theatre/index/getTheatreList').then(res => {
+    this.$axios.get('/api/theatre/index/getTheatreList?page=1&version=6.1.1&referer=2').then(res => {
       this.theatre = res.data.data.theatre_list
     })
   }

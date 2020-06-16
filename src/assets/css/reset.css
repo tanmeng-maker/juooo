@@ -5,7 +5,7 @@ html {
     color: #000;
     font-size: 12px
 }
-
+/*#app{height: 100%}*/
 body,
 ul,
 ol,
@@ -204,6 +204,7 @@ body {
     font-size: 0.12rem;
     line-height: 1;
     -webkit-text-size-adjust: none;
+    height: 100%;
 }
 
 hr {
@@ -218,8 +219,8 @@ a {
     text-decoration: none;
 }
 
-#root,
-.App {
+
+#app {
   overflow-x: hidden;
   height: 100%;
   width: 100%;

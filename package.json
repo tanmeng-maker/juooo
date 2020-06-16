@@ -9,6 +9,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "babel-plugin-import": "^1.13.0",
+    "mint-ui": "^2.2.13",
     "vant": "^2.8.6",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
