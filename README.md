@@ -33,5 +33,6 @@ https://github.com/tanmeng-maker/juooo
 - 唐家琪
 - 殷周蓉
     - 首页的编写
+    - 首页的banner、菜单导航、舞台剧&儿童剧&展览休闲的数据渲染
 - 杨毅
     

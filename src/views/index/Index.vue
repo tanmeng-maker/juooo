@@ -19,72 +19,20 @@
               <!--轮播图-->
               <div class="banner">
                   <div class="banner-swiper">
-                      <a href="javascript:;">
-                          <img src="https://image.juooo.com/group1/M00/04/17/rAoKNV4B2zOADywIAACKVI3TINE298.png" />
-                      </a>
+                      <van-swipe :autoplay="3000">
+                          <van-swipe-item v-for="(image, index) in bannerimg" :key="index">
+                              <img v-lazy="image" />
+                          </van-swipe-item>
+                      </van-swipe>
                   </div>
               </div>
 
               <!-- 分类导航 -->
               <div class="category-nav">
-                  <div class="category-nav-item">
+                  <div class="category-nav-item" v-for="item in menus">
                       <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/03/6C/rAoKmV4Bd7KAJp3dAAAHBeNpsuY695.png">
-                          <span class="category-nav-title">演唱会</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/03/6C/rAoKmV4Bd76ANIqeAAAEry8ElbE406.png">
-                          <span class="category-nav-title">音乐剧</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/04/16/rAoKNV4Bd8mAOtozAAAGbMSgYxk302.png">
-                          <span class="category-nav-title">舞台剧</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/03/6C/rAoKmV4Bd9OAWX_4AAAGGUutSLg074.png">
-                          <span class="category-nav-title">儿童剧</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/04/16/rAoKNV4BeD6ACydtAAAFBhGYLbw928.png">
-                          <span class="category-nav-title">音乐会</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/03/6C/rAoKmV4BeEmAGJjkAAACgQbFPTY821.png">
-                          <span class="category-nav-title">欢聚橙卡</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/04/16/rAoKNV4BeFSASMNWAAADvXoqPxw946.png">
-                          <span class="category-nav-title">橙PLUS卡</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/04/16/rAoKNV4BeHiAGAi8AAAFggWA0y8333.png">
-                          <span class="category-nav-title">VIP+专区</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/03/6C/rAoKmV4BeICAJE6WAAAErgoy82o140.png">
-                          <span class="category-nav-title">积分兑换</span>
-                      </a>
-                  </div>
-                  <div class="category-nav-item">
-                      <a class="category-nav-label">
-                          <img class="category-nav-icon" src="https://image.juooo.com/group1/M00/04/16/rAoKNV4BeJGAcwDeAAAGEkAF0kA904.png">
-                          <span class="category-nav-title">拼团</span>
+                          <img class="category-nav-icon" :src="item.pic" />
+                          <span class="category-nav-title">{{item.name}}</span>
                       </a>
                   </div>
               </div>
@@ -220,274 +168,40 @@
 
               <!-- 剧种分类  -->
               <div class="show-category">
-                  <div class="show-category-box">
+                  <div class="show-category-box" v-for="(item,index) in showcategorys">
                       <div class="show-category-title">
-                          <h3>舞台剧</h3>
+                          <h3>{{item.title}}</h3>
                           <a href="javascript:;">
                               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAALVBMVEUAAABmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaTgChpAAAAD3RSTlMA/Aa1qrzcwa+ezcijk5JAYXVXAAAAVUlEQVQoz2MYtoDNAIsghzA2pYEOWASZRbApNWzAIqiKTSlT4QEsouqS2JQGXsAiqpVApCDTxgeYgtoy2OyZQJyLmAqxhAirBLbwcCAy5NgaGIYzAADnxQppL/x7ngAAAABJRU5ErkJggg==">
                           </a>
                       </div>
                       <div class="show-category-info">
                           <div class="show-category-img">
-                              <img src="https://image.juooo.com//group1/M00/04/21/rAoKNV4Jj32AC3hcAAMtvdtNV6E061.png">
+                              <img :src="item.list[0].pic">
                               <i></i>
                           </div>
                           <div class="show-category-r">
-                              <p class="show-date">2020.07.03&nbsp;<i>周五&nbsp;20:00</i></p>
+                              <p class="show-date">{{item.list[0].display_show_time.split(' ')[0]}}&nbsp;<i>{{item.list[0].week}}&nbsp;{{item.list[0].display_show_time.split(' ')[1]}}</i></p>
                               <h5>
-                                  【演出延期】2020第七届城市戏剧节荒诞喜剧《劫出人生》-深圳站
+                                  {{item.list[0].schedular_name}}
                               </h5>
                               <p class="show-address">
-                                  深圳 |
-                                  南山文体中心剧院小剧院
+                                  {{item.list[0].city_name}} |
+                                  {{item.list[0].venue_name}}
                               </p>
                           </div>
                       </div>
                       <ul>
-                          <li>
+                          <li v-for="v in item.list">
                               <a href="javascript:;">
                                   <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
+                                      <img :src="v.pic">
                                   </div>
                                   <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
+                                      {{v.schedular_name}}
                                   </h3>
                                   <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-                  <div class="show-category-box">
-                      <div class="show-category-title">
-                          <h3>舞台剧</h3>
-                          <a href="javascript:;">
-                              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAALVBMVEUAAABmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaTgChpAAAAD3RSTlMA/Aa1qrzcwa+ezcijk5JAYXVXAAAAVUlEQVQoz2MYtoDNAIsghzA2pYEOWASZRbApNWzAIqiKTSlT4QEsouqS2JQGXsAiqpVApCDTxgeYgtoy2OyZQJyLmAqxhAirBLbwcCAy5NgaGIYzAADnxQppL/x7ngAAAABJRU5ErkJggg==">
-                          </a>
-                      </div>
-                      <div class="show-category-info">
-                          <div class="show-category-img">
-                              <img src="https://image.juooo.com//group1/M00/04/21/rAoKNV4Jj32AC3hcAAMtvdtNV6E061.png">
-                              <i></i>
-                          </div>
-                          <div class="show-category-r">
-                              <p class="show-date">2020.07.03&nbsp;<i>周五&nbsp;20:00</i></p>
-                              <h5>
-                                  【演出延期】2020第七届城市戏剧节荒诞喜剧《劫出人生》-深圳站
-                              </h5>
-                              <p class="show-address">
-                                  深圳 |
-                                  南山文体中心剧院小剧院
-                              </p>
-                          </div>
-                      </div>
-                      <ul>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-                  <div class="show-category-box">
-                      <div class="show-category-title">
-                          <h3>舞台剧</h3>
-                          <a href="javascript:;">
-                              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAALVBMVEUAAABmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmaTgChpAAAAD3RSTlMA/Aa1qrzcwa+ezcijk5JAYXVXAAAAVUlEQVQoz2MYtoDNAIsghzA2pYEOWASZRbApNWzAIqiKTSlT4QEsouqS2JQGXsAiqpVApCDTxgeYgtoy2OyZQJyLmAqxhAirBLbwcCAy5NgaGIYzAADnxQppL/x7ngAAAABJRU5ErkJggg==">
-                          </a>
-                      </div>
-                      <div class="show-category-info">
-                          <div class="show-category-img">
-                              <img src="https://image.juooo.com//group1/M00/04/21/rAoKNV4Jj32AC3hcAAMtvdtNV6E061.png">
-                              <i></i>
-                          </div>
-                          <div class="show-category-r">
-                              <p class="show-date">2020.07.03&nbsp;<i>周五&nbsp;20:00</i></p>
-                              <h5>
-                                  【演出延期】2020第七届城市戏剧节荒诞喜剧《劫出人生》-深圳站
-                              </h5>
-                              <p class="show-address">
-                                  深圳 |
-                                  南山文体中心剧院小剧院
-                              </p>
-                          </div>
-                      </div>
-                      <ul>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
-                                  </p>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="javascript:;">
-                                  <div class="show-img">
-                                      <img src="https://image.juooo.com//group1/M00/03/6C/rAoKmV4AZ3GAK-xpAABsQm0qZyQ219.jpg">
-                                  </div>
-                                  <h3>
-                                      【演出延期】2020第七届城市戏剧节 乌镇戏剧节“最佳戏剧奖”“最佳个人表现奖”团队最新作品《涂红》-深圳站
-                                  </h3>
-                                  <p class="price">
-                                      <span>￥99</span><i>起</i>
+                                      <span>￥{{v.low_price}}</span><i>起</i>
                                   </p>
                               </a>
                           </li>
@@ -574,7 +288,34 @@
 
 <script>
 export default {
-    name:"Index"
+    name:"Index",
+    data(){
+        return{
+            bannerimg:[],
+            menus:[],
+            showcategorys:[]
+        }
+    },
+    created() {
+        //获取菜单和轮播图数据
+        this.$axios.get("/api/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.1&referer=2").then(res=>{
+            console.log(res.data.data);
+             res.data.data.slide_list.map((v)=>{
+                this.bannerimg.push(v.image_url) ;
+            });
+            // console.log(this.bannerimg)
+            this.menus =res.data.data.classify_list;
+            // console.log(this.bannerlist)
+        }),
+        //    获取剧种分类
+        this.$axios.get("/api/home/index/getFloorShow?city_id=0&version=6.1.1&referer=2").then(res=>{
+            console.log(res.data.data);
+            this.showcategorys = res.data.data.slice(2,6).filter((_,k)=>k!==2)
+        })
+    },
+    mounted() {
+
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -708,13 +449,10 @@ export default {
             border: 1px solid #EBEBEB;
             border-radius: 0.16rem;
             overflow: hidden;
-            a{
-                display: block;
                 img{
                     width: 6.93rem;
                     height: 2.8rem;
                 }
-            }
         }
     }
 
