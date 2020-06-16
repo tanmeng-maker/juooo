@@ -53,12 +53,13 @@ export default {
   border-bottom: 1px solid #ebebeb;
 }
 .theater-box {
-  width: 80%;
+  width: 85%;
   background-color: white;
   margin: auto;
   margin-top: 0.22rem;
   border-radius: 5px;
   padding: 0.28rem;
+  height: 5.5rem;
   border: 1px solid #ebebeb;
   .theater-box-title {
     width: 100%;
