@@ -4,7 +4,7 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
-    <TabBar/>
+    <TabBar v-if="$route.meta.TabBarShow"/>
   </div>
 </template>
 <script>

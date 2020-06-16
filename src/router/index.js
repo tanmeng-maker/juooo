@@ -7,22 +7,34 @@ Vue.use(VueRouter)
 	{
 		path:"/",
     name:"index",
-    component:()=>import("@/views/index/Index")
+    component:()=>import("@/views/index/Index"),
+    meta:{
+      TabBarShow:true
+    }
   },
   {
     path:"/theater",
     name:"theater",
-    component:()=>import("@/views/theater/Theater")
+    component:()=>import("@/views/theater/Theater"),
+    meta:{
+      TabBarShow:true
+    }
   },
   {
     path:"/ticket",
     name:"ticket",
-    component:()=>import("@/views/ticket/Ticket") 
+    component:()=>import("@/views/ticket/Ticket"),
+    meta:{
+      TabBarShow:true
+    }
   },
   {
     path:"/my",
     name:"my",
-    component:()=>import("@/views/my/My")
+    component:()=>import("@/views/my/My"),
+    meta:{
+      TabBarShow:true
+    }
   },
   {
     path:"*",
