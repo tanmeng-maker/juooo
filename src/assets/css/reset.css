@@ -3,7 +3,7 @@
 html {
     background-color: #fff;
     color: #000;
-    font-size: 13.333333vw;
+    font-size: 12px
 }
 
 body,
@@ -194,14 +194,14 @@ sub {
 html {
     overflow-x: hidden;
     height: 100%;
-    font-size: 50px;
+    font-size: 13.333333vw;
     -webkit-tap-highlight-color: transparent;
 }
 
 body {
     font-family: Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
     color: #333;
-    font-size: .28em;
+    font-size: 0.12rem;
     line-height: 1;
     -webkit-text-size-adjust: none;
 }
@@ -214,6 +214,13 @@ hr {
 }
 
 a {
-    color: #25a4bb;
+    color: #232323;
     text-decoration: none;
+}
+
+#root,
+.App {
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
