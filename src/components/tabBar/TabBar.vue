@@ -30,13 +30,14 @@ export default {
     color: red;
   }
   ul{
-    width: 100%;
+    width: 7.5rem;
     height: 0.98rem;
     background: #fefefe;
     box-shadow: 0px 0px 2.5px #ebebeb;
     position: fixed;
     left: 0;
     bottom: 0;
+    right: 0;
     z-index: 99;
     display: flex;
     justify-content: center;
