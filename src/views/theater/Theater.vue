@@ -75,18 +75,17 @@ export default {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      margin-left: 10px;
-      margin-top: 5px;
+      margin-left: 0.24rem;
+      margin-top: 0.14rem;
       text-align: left;
       font-weight: 800;
     }
     .theater-box-title-p2 {
       width: 70%;
       float: left;
-      margin: 0;
+      margin-top: 0.2rem;
       text-align: left;
-      margin-left: 10px;
-      margin-top: 3px;
+      margin-left: 0.24rem;
     }
     .theater-box-title-img {
       width: 1rem;
@@ -129,6 +128,12 @@ export default {
   width: 100%;
   height: 30px;
   border-bottom: 2px solid #ebebeb;
+  padding:0.16rem 0;
+  box-sizing: border-box;
+  p{
+    font-size: 0.24rem;
+    color: #c5c5c5;
+  }
 }
 .moveList-time span {
   display: inline-block;
@@ -140,8 +145,8 @@ export default {
   border-radius: 50%;
 }
 .moveList .moveList-img {
-  margin-top: 10px;
-  width: 100%;
-  height: 166px;
+  margin-top: 0.34rem;
+  width: 2.14rem;
+  height: 2.92rem;
 }
 </style>

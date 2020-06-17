@@ -37,6 +37,11 @@ Vue.use(VueRouter)
     }
   },
   {
+    path:"/login",
+    name:"login",
+    component:()=>import("@/views/login/Login"),
+  },
+  {
     path:"*",
     name:"error",
     component:()=>import("@/views/error/Error")
