@@ -13,7 +13,7 @@
     <div id="ticket">
       <img src="../../assets/img/ticket.png" alt=""/>
       <p>暂无电子票</p>
-      <button>登录</button>
+      <button @click="$router.push('/login')">登录</button>
     </div>
 
     <!-- 暂无电子票 -->

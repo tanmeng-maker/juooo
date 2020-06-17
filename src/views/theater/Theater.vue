@@ -1,16 +1,22 @@
 <template>
   <div>
-      <!-- 剧院 -->
+    <transition name="fade">
+      <loading v-if="isLoading"></loading>
+    </transition>
+    <!-- 剧院 -->
     <div class="Header">剧院</div>
     <div class="theater-box" v-for="v in theatre" :key="v.id">
-      <div class="theater-box-title">
-        <img :src="v.pic" class="theater-box-title-img" alt />
-        <p class="theater-box-title-p1">{{v.name}}</p>
-        <p class="theater-box-title-p2">{{v.count}}场在售演出</p>
-        <div class="theater-more-btn">
-          <img src="https://m.juooo.com/static/img/more.2ce7873.png" alt />
+      <router-link to="/detail">
+        <div class="theater-box-title">
+          <img :src="v.pic" class="theater-box-title-img" alt />
+          <p class="theater-box-title-p1">{{v.name}}</p>
+          <p class="theater-box-title-p2">{{v.count}}场在售演出</p>
+          <div class="theater-more-btn">
+            <img src="https://m.juooo.com/static/img/more.2ce7873.png" alt />
+          </div>
         </div>
-      </div>
+      </router-link>
+
       <div class="theater-box-list">
         <div class="moveList">
           <div class="moveList-box" v-for="item in v.showList" :key="item.id">
@@ -26,16 +32,22 @@
   </div>
 </template>
 <script>
+import Loading from '@/components/loading/Loading'
 export default {
   data() {
     return {
+      isLoading: true,
       theatre: []
     }
   },
+  components: { Loading },
   created() {
-    this.$axios.get('/api/theatre/index/getTheatreList?page=1&version=6.1.1&referer=2').then(res => {
-      this.theatre = res.data.data.theatre_list
-    })
+    this.$axios
+      .get('/api/theatre/index/getTheatreList?page=1&version=6.1.1&referer=2')
+      .then(res => {
+        this.theatre = res.data.data.theatre_list
+        this.isLoading = false
+      })
   }
 }
 </script>
@@ -128,9 +140,9 @@ export default {
   width: 100%;
   height: 30px;
   border-bottom: 2px solid #ebebeb;
-  padding:0.16rem 0;
+  padding: 0.16rem 0;
   box-sizing: border-box;
-  p{
+  p {
     font-size: 0.24rem;
     color: #c5c5c5;
   }

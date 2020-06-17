@@ -42,6 +42,11 @@ Vue.use(VueRouter)
     component:()=>import("@/views/login/Login"),
   },
   {
+    path:"/detail",
+    name:"detail",
+    component:()=>import("@/components/detail/Detail")
+  },
+  {
     path:"*",
     name:"error",
     component:()=>import("@/views/error/Error")

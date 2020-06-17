@@ -225,3 +225,11 @@ a {
   height: 100%;
   width: 100%;
 }
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
