@@ -53,14 +53,18 @@
                   </a>
                   <div class="vip-discount-swiper">
                       <div class="vip-discount-swiper-container">
-                          <div>
-                              <img src="">
-                              <div>
-                                  <div></div>
-                                  <div></div>
-                              </div>
-                          </div>
-                          <div></div>
+                          <van-swipe :autoplay="3000">
+                              <van-swipe-item v-for="(item,index) in vipdiscount" :key="index" class="van-swipe-item">
+                                  <img :src="item.pic"/>
+                                  <div class="discount-info">
+                                      <h4>{{item.schedular_name}}</h4>
+                                      <div class="discount">
+                                          <span><i>{{item.min_discount}}</i>折起</span>
+                                          <p>立即抢购</p>
+                                      </div>
+                                  </div>
+                              </van-swipe-item>
+                          </van-swipe>
                       </div>
                   </div>
               </div>
@@ -212,74 +216,32 @@
               <!-- 为你推荐  -->
               <div class="recommend">
                   <h3>为你推荐</h3>
-                  <ol>
-                      <li>
-                          <a href="javascript:;">
-                              <div class="recommend-img">
-                                  <img src="https://image.juooo.com/group1/M00/04/51/rAoKNV7nZX-ASAx3AACK4pdDRUY793.jpg">
-                              </div>
-                              <div class="recommend-info">
-                                  <div class="recommend-title">
-                                      <img src="https://image.juooo.com/upload/i.png">
-                                      胡沈员工作室 现代舞作品《有多久没见你》-深圳站
+                  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+                      <ol>
+                          <li v-for="item in recommendlist" :key="item.show_id">
+                              <a href="javascript:;">
+                                  <div class="recommend-img">
+                                      <img :src="item.pic">
                                   </div>
-                                  <span class="recommend-date">2020.07.03 - 07.04  </span>
-                                  <p class="price">
-                                      <span>￥80</span><i>起</i>
-                                  </p>
-                                  <div class="recommend-discount">
-                                      <span>电子票</span>
-                                      <span>可选座</span>
-                                      <span>限时8折起</span>
+                                  <div class="recommend-info">
+                                      <div class="recommend-title">
+                                          <img src="https://image.juooo.com/upload/i.png">
+                                          {{item.name}}
+                                      </div>
+                                      <span class="recommend-date">{{item.start_show_time.split(' ')[0]}} - {{item.end_show_time.split(' ')[1]}}  </span>
+                                      <p class="price">
+                                          <span>￥{{item.min_price}}</span><i>起</i>
+                                      </p>
+                                      <div class="recommend-discount">
+                                          <span>电子票</span>
+                                          <span>可选座</span>
+                                          <span>限时8折起</span>
+                                      </div>
                                   </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="javascript:;">
-                              <div class="recommend-img">
-                                  <img src="https://image.juooo.com/group1/M00/04/51/rAoKNV7nZX-ASAx3AACK4pdDRUY793.jpg">
-                              </div>
-                              <div class="recommend-info">
-                                  <div class="recommend-title">
-                                      <img src="https://image.juooo.com/upload/i.png">
-                                      胡沈员工作室 现代舞作品《有多久没见你》-深圳站
-                                  </div>
-                                  <span class="recommend-date">2020.07.03 - 07.04  </span>
-                                  <p class="price">
-                                      <span>￥80</span><i>起</i>
-                                  </p>
-                                  <div class="recommend-discount">
-                                      <span>电子票</span>
-                                      <span>可选座</span>
-                                      <span>限时8折起</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="javascript:;">
-                              <div class="recommend-img">
-                                  <img src="https://image.juooo.com/group1/M00/04/51/rAoKNV7nZX-ASAx3AACK4pdDRUY793.jpg">
-                              </div>
-                              <div class="recommend-info">
-                                  <div class="recommend-title">
-                                      <img src="https://image.juooo.com/upload/i.png">
-                                      胡沈员工作室 现代舞作品《有多久没见你》-深圳站
-                                  </div>
-                                  <span class="recommend-date">2020.07.03 - 07.04  </span>
-                                  <p class="price">
-                                      <span>￥80</span><i>起</i>
-                                  </p>
-                                  <div class="recommend-discount">
-                                      <span>电子票</span>
-                                      <span>可选座</span>
-                                      <span>限时8折起</span>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                  </ol>
+                              </a>
+                          </li>
+                      </ol>
+                  </van-pull-refresh>
               </div>
           </div>
       </div>
@@ -287,19 +249,37 @@
 </template>
 
 <script>
+import { Toast } from 'vant';
 export default {
     name:"Index",
     data(){
         return{
+            isLoading: false,
             bannerimg:[],
             menus:[],
-            showcategorys:[]
+            showcategorys:[],
+            vipdiscount:[],
+            recommendlist:[]
         }
+    },
+    methods: {
+        getRecommendlist(){
+         this.$axios.get('/api/Show/Search/getShowList?city_id=0&category=&keywords=&venue_id=&start_time=&page=1&referer_type=index&version=6.1.1&referer=2').then(res=>{
+                console.log(res.data.data);
+                this.recommendlist = res.data.data.list;
+            })
+        },
+        onRefresh() {
+            setTimeout(() => {
+                Toast('刷新成功');
+                this.isLoading = false;
+            }, 1000);
+        },
     },
     created() {
         //获取菜单和轮播图数据
         this.$axios.get("/api/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.1&referer=2").then(res=>{
-            console.log(res.data.data);
+            // console.log(res.data.data);
              res.data.data.slide_list.map((v)=>{
                 this.bannerimg.push(v.image_url) ;
             });
@@ -309,9 +289,16 @@ export default {
         }),
         //    获取剧种分类
         this.$axios.get("/api/home/index/getFloorShow?city_id=0&version=6.1.1&referer=2").then(res=>{
-            console.log(res.data.data);
+            // console.log(res.data.data);
             this.showcategorys = res.data.data.slice(2,6).filter((_,k)=>k!==2)
+        }),
+        //   vip折扣卡
+        this.$axios.get("/api/vip/index/getVipHomeSchedular?city_id=0&version=6.1.1&referer=2").then(res=>{
+            // console.log(res.data.data)
+            this.vipdiscount = res.data.data.discountList
         })
+        //    为你推荐
+        this.getRecommendlist()
     },
     mounted() {
 
@@ -338,7 +325,7 @@ export default {
         ul{
             display: flex;
             justify-content: flex-start;
-            overflow: hidden;
+            overflow-x: auto;
             li{
                 width: 2.01rem;
                 display: flex;
@@ -490,6 +477,7 @@ export default {
         border: 1px solid rgba(213,163,112,0.5);
         border-radius: 0.08rem;
         padding: 0 0.3rem;
+        background: #fffcf5;
         .vip-discount-label .vip-discount-title{
             height: .79rem;
             display: flex;
@@ -524,6 +512,48 @@ export default {
         }
         .vip-discount-swiper{
             height: 2.14rem;
+            .vip-discount-swiper-container{
+                height: 2.42rem;
+                padding: .3rem 0 0 0;
+                .van-swipe-item{
+                    display: flex;
+                    justify-content: flex-start;
+                }
+                img{
+                    width: 1.11rem;
+                    height: 1.50rem;
+                }
+                .discount-info{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    margin-left: .3rem;
+                    h4{
+                        font: .26rem/.4rem '';
+                        color: #232323;
+                    }
+                    .discount{
+                        font: .26rem/.47rem '';
+                        display: flex;
+                        justify-content: space-between;
+                        span{
+                            color: #999;
+                            i{
+                                color: #ff6743;
+                                margin-right: .19rem;
+                            }
+                        }
+                        p{
+                            width: 1.48rem;
+                            font: .22rem/.44rem '';
+                            color: #ff6743;
+                            border: solid 1px #ff6743;
+                            border-radius: 0.33333rem;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
         }
     }
 

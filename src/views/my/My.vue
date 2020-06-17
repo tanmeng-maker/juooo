@@ -109,7 +109,9 @@
 
 <script>
     export default {
-        name: "My"
+        name: "My",
+      mounted() {
+      }
     }
 </script>
 <style lang="scss" scoped>
