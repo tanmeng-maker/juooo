@@ -12,9 +12,9 @@
       </header>
       <!-- 手机号 -->
       <div class="phone">
-        <input type="text" placeholder="请输入手机号/邮箱" />
-        <input type="password" placeholder="请输入密码" />
-        <button>登&nbsp;录</button>
+        <input type="text" v-model="text1" placeholder="请输入手机号/邮箱" />
+        <input type="password" v-model="text2" placeholder="请输入密码" />
+        <button @click="login">登&nbsp;录</button>
         <p>
           <span>忘记密码</span>
           <span>验证码登录/注册</span>
@@ -35,16 +35,33 @@
 </template>
 
 <script>
+import { login } from '../../api'
 export default {
   name: 'Login',
-  data(){
-    return{
-      Login:false
+  data() {
+    return {
+      Login: false,
+      text1: '',
+      text2: ''
     }
   },
   methods: {
     goback() {
       this.$router.go(-1)
+    },
+    login() {
+      login({
+        tel: this.text1,
+        password: this.text2
+      }).then(res => {
+        console.log(res.data)
+        if ((res.data.code = 10888)) {
+          this.$router.push('/')
+          localStorage.setItem('userid', res.data.data.userid)
+          localStorage.setItem('token', res.data.data.token)
+          localStorage.setItem('nickname', res.data.data.nickname)
+        }
+      })
     }
   }
 }

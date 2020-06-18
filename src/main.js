@@ -6,9 +6,8 @@ import '@/assets/css/reset.css'//引入样式初始化
 import '@/assets/css/border.css'//解决1px边框问题
 import '@/assets/iconfont/iconfont.css'//引入阿里图标库
 import axios from 'axios'//引入axios
-import { Swipe, SwipeItem ,Lazyload,PullRefresh ,List} from 'vant';//引入vant-ui
-Vue.use(Swipe).use(SwipeItem).use(Lazyload).use(PullRefresh).use(List);
-
+import { Swipe, SwipeItem ,Lazyload,PullRefresh ,List,Toast} from 'vant';//引入vant-ui
+Vue.use(Swipe).use(SwipeItem).use(Lazyload).use(PullRefresh).use(List).use(Toast);
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios//添加到原型上
 

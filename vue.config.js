@@ -16,7 +16,14 @@ module.exports = {
                 pathRewrite:{
                     '^/api':''
                 }
-            } 
+            } ,
+            '/login':{
+                target:"http://nz1908.wudaxun.top/api/users/login",
+                changeOrigin:true,
+                pathRewrite:{
+                    "^/login":''
+                }
+            }
         }
     },
     // 如果需要配置路径别名就在这配置
