@@ -41,8 +41,8 @@ export default {
   data() {
     return {
       Login: false,
-      text1: '',
-      text2: ''
+      text1: '18502154521',
+      text2: '123456'
     }
   },
   methods: {
@@ -55,11 +55,18 @@ export default {
         password: this.text2
       }).then(res => {
         console.log(res.data)
-        if ((res.data.code = 10888)) {
-          this.$router.push('/')
+        if (res.data.code == 10888) {
+          this.$toast.success({
+            message:'登录成功'
+          })
+          this.$router.go(-1)
           localStorage.setItem('userid', res.data.data.userid)
           localStorage.setItem('token', res.data.data.token)
           localStorage.setItem('nickname', res.data.data.nickname)
+        }else {
+          this.$toast.fail({
+            message:'登录失败'
+          })
         }
       })
     }
