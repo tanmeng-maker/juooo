@@ -16,14 +16,14 @@
         <input type="password" v-model="text2" placeholder="请输入密码" />
         <button @click="login">登&nbsp;录</button>
         <p>
-          <span>忘记密码</span>
+          <span @click="$router.push('/resetpassword')">忘记密码</span>
           <span>验证码登录/注册</span>
         </p>
       </div>
       <!--  其他方式登录  -->
       <div class="other">
         <span>其他方式登录</span>
-        <a href="http://www.baidu.com">
+        <a href="https://m.juooo.com/">
           <p>
             <i class="iconfont icon-logo-qq" :style="{ color: 'green', fontSize: '0.7rem'}"></i>
             <i class="iconfont icon-weibo" :style="{color: 'red',fontSize: '0.7rem'}"></i>
@@ -60,9 +60,9 @@ export default {
             message:'登录成功'
           })
           this.$router.go(-1)
-          localStorage.setItem('userid', res.data.data.userid)
-          localStorage.setItem('token', res.data.data.token)
-          localStorage.setItem('nickname', res.data.data.nickname)
+          window.sessionStorage.setItem('userid', res.data.data.userid)
+          window.sessionStorage.setItem('token', res.data.data.token)
+          window.sessionStorage.setItem('nickname', res.data.data.nickname)
         }else {
           this.$toast.fail({
             message:'登录失败'
@@ -80,6 +80,7 @@ export default {
   width: 100%;
   height: 2.43rem;
   .header-title {
+    font-size: 0.5rem;
     height: 0.55rem;
     padding: 0.22rem 0 0 0.38rem;
   }

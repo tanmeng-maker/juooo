@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
   const routes = [
 	{
+    //我的
 		path:"/",
     name:"index",
     component:()=>import("@/views/index/Index"),
@@ -12,7 +13,8 @@ Vue.use(VueRouter)
       TabBarShow:true
     }
   },
-  {
+  { 
+    //剧院
     path:"/theater",
     name:"theater",
     component:()=>import("@/views/theater/Theater"),
@@ -21,6 +23,7 @@ Vue.use(VueRouter)
     }
   },
   {
+    //票夹
     path:"/ticket",
     name:"ticket",
     component:()=>import("@/views/ticket/Ticket"),
@@ -29,6 +32,7 @@ Vue.use(VueRouter)
     }
   },
   {
+    //我的
     path:"/my",
     name:"my",
     component:()=>import("@/views/my/My"),
@@ -37,16 +41,25 @@ Vue.use(VueRouter)
     }
   },
   {
+    //登录
     path:"/login",
     name:"login",
     component:()=>import("@/views/login/Login"),
   },
   {
+    //忘记密码
+    path:"/resetpassword",
+    name:"resetpassword",
+    component:()=>import("@/views/login/components/Resetpassword")
+  },
+  {
+    //详情
     path:"/detail",
     name:"detail",
     component:()=>import("@/components/detail/Detail")
   },
   {
+    //404页面
     path:"*",
     name:"error",
     component:()=>import("@/views/error/Error")

@@ -15,7 +15,7 @@
               <img src="../../assets/img/my/my_head_pic.png" alt="logo">
             </div>
             <!--登录注册-->
-            <span class="mine-info-main-login">登录 / 注册</span>
+            <span class="mine-info-main-login" @click="$router.push('/login')">登录 / 注册</span>
             <span class="mine-info-main-uid">请点击登录 &gt;</span>
           </div>
           <div class="main-info-label">
